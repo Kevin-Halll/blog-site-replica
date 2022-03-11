@@ -7,18 +7,23 @@ import { ReviewFormComponent } from './review-form/review-form.component';
 import { ReviewFormDialogComponent } from './review-form-dialog/review-form-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ReviewFormComponent,
-    ReviewFormDialogComponent
+    ReviewFormDialogComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
