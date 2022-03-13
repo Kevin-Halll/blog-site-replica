@@ -34,13 +34,14 @@ $blog-site-replica-theme: mat.define-light-theme((
 @include mat.all-component-themes($blog-site-replica-theme);
 
 /* You can add global styles to this file, and also import other style files */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    text-decoration: none;
 
-}
+// *{
+//     padding: 0;
+//     margin: 0;
+//     box-sizing: border-box;
+//     text-decoration: none;
+//     overflow-x: hidden
+// }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
