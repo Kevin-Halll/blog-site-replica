@@ -1,0 +1,43 @@
+<form [formGroup]="signUpForm">
+
+  <h2>Create an account</h2>
+     <div class="container">
+
+       <div class="name">
+         <div class="firstName">
+           <input type="text" placeholder="First Name" formControlName="fName">
+           <div *ngIf="">
+             <small class="error">Enter first Name</small>
+           </div>
+         </div>
+         <div class="lastName">
+           <input type="text" placeholder="Last Name" formControlName="lName">
+         </div>
+       </div>
+
+       <div class="contact">
+         <div class="email">
+           <input type="email" placeholder="Email" formControlName="email">
+         </div>
+         <div class="phoneNumber">
+           <input type="text" placeholder="(876)-123-4567" formControlName="phoneNumber">
+         </div>
+       </div>
+
+       <div class="passwords">
+         <div class="pasword">
+           <input type="password" placeholder="Password" formControlName="password">
+         </div>
+         <div class="confirmPassword">
+           <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+         </div>
+       </div>
+
+       <div class="signUpBtn">
+           <div class="button">
+                <input type="submit" value="Sign Up">
+           </div>
+       </div>
+
+     </div>
+</form>
