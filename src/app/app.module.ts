@@ -12,7 +12,6 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormControl } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,7 @@ import { FormControl } from '@angular/forms';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule,
-    FormControl
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

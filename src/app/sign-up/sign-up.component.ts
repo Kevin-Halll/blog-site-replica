@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,14 +9,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
+ passwordValidator(control: AbstractControl):{[Key:string]:boolean} | null {
+  const password = control.get('password');
+  const confirmPassword = control.get('confirmPassword');
+
+  if(password?.pristine || confirmPassword?.pristine){
+      return null
+  }
+
+   return password && confirmPassword && password.value != confirmPassword.value ?
+   {'misMatch': true}:
+   null;
+}
+
   signUpForm = new FormGroup ({
     fName: new FormControl ('',Validators.required),
-    LName: new FormControl('',Validators.required),
+    lName: new FormControl('',Validators.required),
     email: new FormControl('',Validators.required),
-    phoneNumber: new FormControl('',[Validators.required,Validators.pattern('(([(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')]),
+    phoneNumber: new FormControl('',[ Validators.required]),
     password: new FormControl('',Validators.required),
     confirmPassword: new FormControl('',Validators.required)
-  })
+  },{validators :this.passwordValidator})
 
   get fName(){return this.signUpForm.get('fName')}
   get lName(){return this.signUpForm.get('lName')}
@@ -24,6 +38,10 @@ export class SignUpComponent implements OnInit {
   get password(){return this.signUpForm.get('password')}
   get confirmPassword(){return this.signUpForm.get('confirmPassword')}
 
+
+  Submit(){
+      alert("Account Created")
+  }
   constructor() { }
 
   ngOnInit(): void {

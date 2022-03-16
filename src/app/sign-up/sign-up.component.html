@@ -6,36 +6,51 @@
        <div class="name">
          <div class="firstName">
            <input type="text" placeholder="First Name" formControlName="fName">
-           <div *ngIf="">
+           <div *ngIf="fName?.invalid && fName?.touched">
              <small class="error">Enter first Name</small>
            </div>
          </div>
          <div class="lastName">
            <input type="text" placeholder="Last Name" formControlName="lName">
+           <div *ngIf="lName?.invalid && lName?.touched">
+            <small class="error">Enter last Name</small>
+          </div>
          </div>
        </div>
 
        <div class="contact">
          <div class="email">
            <input type="email" placeholder="Email" formControlName="email">
+           <div *ngIf="email?.invalid && email?.touched">
+            <small class="error">Enter email address</small>
+          </div>
          </div>
          <div class="phoneNumber">
-           <input type="text" placeholder="(876)-123-4567" formControlName="phoneNumber">
+           <input type="text" placeholder="123-456-7890" formControlName="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+           <div *ngIf="phoneNumber?.invalid && phoneNumber?.touched">
+            <small class="error">Enter phone number</small>
+          </div>
          </div>
        </div>
 
        <div class="passwords">
          <div class="pasword">
            <input type="password" placeholder="Password" formControlName="password">
+           <div *ngIf="password?.invalid && password?.touched">
+            <small class="error">Enter password</small>
+          </div>
          </div>
          <div class="confirmPassword">
-           <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+           <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" [class.is-invalid]="signUpForm.errors?.['misMatch']">
+           <div *ngIf="signUpForm.errors?.['misMatch']">
+            <small class="error">Confirm password</small>
+          </div>
          </div>
        </div>
 
        <div class="signUpBtn">
            <div class="button">
-                <input type="submit" value="Sign Up">
+                <input [disabled]="signUpForm?.invalid" (click)="Submit()" type="submit" value="Sign Up">
            </div>
        </div>
 
